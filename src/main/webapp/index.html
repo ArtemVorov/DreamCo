@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Barter Club</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registration.css">
+    <link rel="stylesheet" href="css/registration_step1.css">
+    <link rel="stylesheet" href="css/gender.css">
+</head>
+<body>
+<div id="basicModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+    <div class="container">
+        <div class="row">
+            <section>
+                <div class="wizard">
+                    <div class="wizard-inner">
+                        <div class="connecting-line"></div>
+                        <ul class="nav nav-tabs" role="tablist">
+
+                            <li role="presentation" class="active">
+                                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                            </span>
+                                </a>
+                            </li>
+
+                            <li role="presentation" class="disabled">
+                                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                                </a>
+                            </li>
+                            <li role="presentation" class="disabled">
+                                <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+                                </a>
+                            </li>
+
+                            <li role="presentation" class="disabled">
+                                <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form role="form">
+                        <div class="tab-content">
+                            <div class="tab-pane active" role="tabpanel" id="step1">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form action="" method="post" id="fileForm" role="form">
+
+                                                <!-- <div class="form-group">
+                                                <label for="phonenumber"><span class="req">* </span> Phone Number: </label>
+                                                        <input required type="text" name="phonenumber" id="phone" class="form-control phone" maxlength="28" onkeyup="validatephone(this);" placeholder="not used for marketing"/>
+                                                </div> -->
+
+                                                <div class="form-group">
+                                                    <label for="name"><span class="req">* </span> First name: </label>
+                                                    <input class="form-control" type="text" name="firstname" id = "txt" onkeyup = "Validate(this)" required />
+                                                    <div id="errFirst"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="lastname"><span class="req">* </span> Last name: </label>
+                                                    <input class="form-control" type="text" name="lastname" id = "txt" onkeyup = "Validate(this)" placeholder="hyphen or single quote OK" required />
+                                                    <div id="errLast"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="email"><span class="req">* </span> Email Address: </label>
+                                                    <input class="form-control" required type="text" name="email" id = "email"  onchange="email_validate(this.value);" />
+                                                    <div class="status" id="status"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="username"><span class="req">* </span> User name:  <small>This will be your login user name</small> </label>
+                                                    <input class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="minimum 6 letters" required />
+                                                    <div id="errLast"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="password"><span class="req">* </span> Password: </label>
+                                                    <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> </p>
+
+                                                    <label for="password"><span class="req">* </span> Password Confirm: </label>
+                                                    <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="Enter again to validate"  id="pass2" onkeyup="checkPass(); return false;" />
+                                                    <span id="confirmMessage" class="confirmMessage"></span>
+                                                </div>
+
+
+
+                                                </fieldset>
+                                            </form><!-- ends register form -->
+
+                                            <script type="text/javascript">
+                                                document.getElementById("field_terms").setCustomValidity("Please indicate that you accept the Terms and Conditions");
+                                            </script>
+                                        </div><!-- ends col-6 -->
+
+
+
+                                    </div>
+
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                </ul>
+                            </div>
+
+                            <div class="tab-pane" role="tabpanel" id="step2">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form action="" method="post" id="fileForm" role="form">
+                                                <div class="form-group">
+                                                    <label for="birthDate">
+                                                        <span class="req">* </span>
+                                                        Date of Birth:
+                                                    </label>
+                                                    <!--<div class="col-sm-9">-->
+                                                    <input type="date" id="birthDate" class="form-control">
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="phonenumber"><span class="req">* </span> Phone Number: </label>
+                                                    <input required type="text" name="phonenumber" id="phone" class="form-control phone" maxlength="28" onkeyup="validatephone(this);" placeholder="not used for marketing"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="country">
+                                                        <span class="req">* </span>
+                                                        Country:
+                                                    </label>
+                                                    <!-- <div class="col-sm-9">-->
+                                                    <select id="country" class="form-control">
+                                                        <option>Afghanistan</option>
+                                                        <option>Bahamas</option>
+                                                        <option>Cambodia</option>
+                                                        <option>Denmark</option>
+                                                        <option>Ecuador</option>
+                                                        <option>Fiji</option>
+                                                        <option>Gabon</option>
+                                                        <option>Haiti</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="email"><span class="req">* </span> Email Address: </label>
+                                                    <input class="form-control" required="" type="text" name="email" id="email" onchange="email_validate(this.value);">
+                                                    <div class="status" id="status"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="info"><span class="req">* </span> Some information about you: </label>
+                                                    <textarea rows="4" cols="75" name="text" style="border: 1px solid  #ccc; border-radius: 3px"></textarea>
+                                                </div>
+
+
+                                                <!--<div class="form-group">
+                                                    <label for="firstname"><span class="req">* </span> First name: </label>
+                                                        <input class="form-control" type="text" name="firstname" id = "txt" onkeyup = "Validate(this)" required />
+                                                            <div id="errFirst"></div>-
+                                                </div>-->
+
+                                                <!--             <div class="form-group">
+                                                                <label for="lastname"><span class="req">* </span> Last name: </label>
+                                                                    <input class="form-control" type="text" name="lastname" id = "txt" onkeyup = "Validate(this)" placeholder="hyphen or single quote OK" required />
+                                                                        <div id="errLast"></div>
+                                                            </div> -->
+
+                                                <!--<div class="form-group">
+                                                     <label for="email"><span class="req">* </span> Email Address: </label>
+                                                        <input class="form-control" required type="text" name="email" id = "email"  onchange="email_validate(this.value);" />
+                                                            <div class="status" id="status"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="username"><span class="req">* </span> User name:  <small>This will be your login user name</small> </label>
+                                                        <input class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="minimum 6 letters" required />
+                                                            <div id="errLast"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="password"><span class="req">* </span> Password: </label>
+                                                        <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> </p>
+
+                                                    <label for="password"><span class="req">* </span> Password Confirm: </label>
+                                                        <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="Enter again to validate"  id="pass2" onkeyup="checkPass(); return false;" />
+                                                            <span id="confirmMessage" class="confirmMessage"></span>
+                                                </div> -->
+
+
+                                                </fieldset>
+                                            </form><!-- ends register form -->
+
+                                            <script type="text/javascript">
+                                                document.getElementById("field_terms").setCustomValidity("Please indicate that you accept the Terms and Conditions");
+                                            </script>
+                                        </div><!-- ends col-6 -->
+
+
+
+                                    </div>
+                                </div>
+
+
+
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                    <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                </ul>
+
+                            </div>
+
+                            <div class="tab-pane" role="tabpanel" id="step3">
+                                <img class="avatar_upload" src="images/avatar_upload.png" >
+
+                                <div class="file-upload">
+                                    <label>
+                                        <input type="file" name="file">
+                                        <span>Upload</span>
+                                    </label>
+                                </div>
+                                <!-- your server code `avatar_upload.php` will receive `$_FILES['avatar']` on form submission -->
+
+                                <!-- the fileinput plugin initialization -->
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                    <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                                    <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" role="tabpanel" id="complete">
+                                <h3>Complete</h3>
+                                <p>You have successfully completed all steps.</p>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<div id="logInModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Log in</h3>
+    </div>
+    <div class="modal-body">
+        <table>
+            <tr>
+                <form method="post" action="users">
+                    <b>Choose user: &nbsp;</b>
+                    <select name="userId">
+                        <option value="100000">User</option>
+                        <option value="100001">Admin</option>
+                    </select>
+                    <button type="submit">Sign in</button>
+                </form>
+                <!--<td>Email:</td>-->
+                <!--<td><input type="email" class="form-control" placeholder="Enter your email"></td>-->
+            </tr>
+            <!--<tr>-->
+            <!--<td>Password</td>-->
+            <!--<td><input type="password" class="form-control" placeholder="Enter your password"></td>-->
+            <!--</tr>-->
+        </table>
+    </div>
+    <!--<div class="modal-footer">-->
+    <!--&lt;!&ndash;-->
+    <!--<a href="#" class="btn" type="button" data-dismiss="modal" aria-hidden="true">Close</a>-->
+    <!--&ndash;&gt;-->
+    <!--&lt;!&ndash;<a href="desires" class="btn btn-primary">Sign in</a>&ndash;&gt;-->
+    <!--</div>-->
+</div>
+<header>
+    <div class="menu">
+        <div class="container menu-container">
+            <div class="menu-logo">
+                <div class="menu-logo-icon">D</div>
+                <div class="menu-logo-text-container">
+                    <a href="index.html" class="menu-logo-text menu-logo-text-up">Dream.Co</a><br>
+                    <a href="index.html" class="menu-logo-text menu-logo-text-down">make it happen</a>
+                </div>
+            </div>
+            <a href="index.html" class="menu-item menu-item-1">Home</a>
+            <a href="dreams.jsp" class="menu-item menu-item-1">Dreams</a>
+            <a href="desires" class="menu-item menu-item-1">Profile</a>
+            <button class="menu-item menu-item-logIn btn" type="button" data-toggle="modal" data-target="#basicModal">Sign in</button>
+            <button class="menu-item menu-item-signIn" type="button" data-toggle="modal" data-target="#logInModal">Log in</button>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <div class="topBigText">
+            <div class="topBigText-container">
+                <img src ="images/elephant_text.png" style="width:400px; height: 200px">
+            </div>
+        </div>
+    </div>
+</header>
+<div class="middle">
+    <div class="middle-content container">
+        <div class="middle-content-blocks">
+            <div class="middle-content-block middle-content-block-1">
+                <div class="middle-content-block-icon middle-content-block-1-icon">
+                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                </div>
+                <div class="middle-content-block-text middle-content-block-1-text">
+                    Do you have a dream?
+                </div>
+                <span class="middle-content-arrow1 glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+            </div>
+            <!--------------------------------------Block-1-↑------------------------------------>
+            <div class="middle-content-block middle-content-block-2">
+                <div class="middle-content-block-icon middle-content-block-2-icon">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                </div>
+                <div class="middle-content-block-text middle-content-block-2-text">
+                    If do, our site will help you
+                </div>
+                <span class="middle-content-arrow2 glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+            </div>
+            <!---------------------------------------Block-2-↑------------------------------------->
+            <div class="middle-content-block middle-content-block-1">
+                <div class="middle-content-block-icon middle-content-block-1-icon">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </div>
+                <div class="middle-content-block-text middle-content-block-1-text">
+                    Create your own account
+                </div>
+                <span class="middle-content-arrow1 glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+            </div>
+            <!--------------------------------------Block-3-↑------------------------------------>
+            <div class="middle-content-block middle-content-block-2">
+                <div class="middle-content-block-icon middle-content-block-2-icon">
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                </div>
+                <div class="middle-content-block-text middle-content-block-2-text">
+                    Add dreams to your account
+                </div>
+                <span class="middle-content-arrow2 glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+            </div>
+            <!---------------------------------------Block-4-↑------------------------------------->
+            <div class="middle-content-block middle-content-block-1">
+                <div class="middle-content-block-icon middle-content-block-1-icon">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </div>
+                <div class="middle-content-block-text middle-content-block-1-text">
+                    Find user which dream you can realise
+                </div>
+                <span class="middle-content-arrow1 glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+            </div>
+            <!--------------------------------------Block-5-↑------------------------------------>
+            <div class="middle-content-block middle-content-block-2">
+                <div class="middle-content-block-icon middle-content-block-2-icon">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                </div>
+                <div class="middle-content-block-text middle-content-block-2-text">
+                    Contact with user, and your dreams come true
+                </div>
+                <span class="middle-content-arrow2 glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+            </div>
+            <!---------------------------------------Block-6-↑------------------------------------->
+        </div>
+        <!---------------------------------------------------------->
+        <!--<div class="project">-->
+        <!--<hr>-->
+        <!--<form method="post" action="users">-->
+        <!--<b>Desire list of&nbsp;</b>-->
+        <!--<select name="userId">-->
+        <!--<option value="100000">User</option>-->
+        <!--<option value="100001">Admin</option>-->
+        <!--</select>-->
+        <!--<button type="submit">Select</button>-->
+        <!--</form>-->
+        <!--</div>-->
+    </div>
+</div>
+<footer>
+    <div class="footer-content container">
+        <div class="projected">
+            <table>
+                <tr>
+                    <td>Projected by:</td>
+                    <td><span class="fa fa-user-circle-o"></span>Darya Makarova</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span class="fa fa-user-circle-o"></span>Artem Vorov</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span class="fa fa-user-circle-o"></span>Dmitry Lopata</td>
+                </tr>
+            </table>
+        </div>
+        <div class="aboutUs">
+            <a href="">About Us:</a>
+        </div>
+        <div class="help">
+            <span href="">Help:</span>
+            <table>
+                <tr>
+                    <td><span class="fa fa-envelope"></span></td>
+                    <td><a href="darya.aleks.mak@gmail.com">darya.aleks.mak@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <td> <span class="fa fa-phone"></span></td>
+                    <td><a href="">09670445991</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="contact">
+            <span href="">Contact:</span>
+            <div class="contact-icons">
+                <a href="#" class="fa fa-vk"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-skype"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!------------------------JS----------------------------->
+<script src="jquery/jquery-3.1.0.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="js/registration.js"></script>
+<script src="js/registration_step1.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/wizard.js"></script>
+
+</body>
+</html>
